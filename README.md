@@ -1,4 +1,4 @@
-Application read a text file and calculate amount of rows and unique IPs
+The application reads a text file and calculates amount of rows and unique IPs
 The file format:<pre>
   145.67.23.4
   8.34.5.23
@@ -10,7 +10,7 @@ The file format:<pre>
 Usage:
 go run . fileName [1]
 - fileName - full file path with the name
-- 1 - optional parameter to instruct applicaiton to use single thread for file reading, which is faster for HDD (vs to SSD)
+- 1 - an optional parameter to instruct the applicaiton to use a single thread for a file reading, which is faster for HDD (vs to SSD)
 
-Application uses multiple threads to read a file by blocks. Amount of thread is equal to amount of CPUs
+The application uses multiple threads to read a file by blocks. The number of threads is equal to the number of CPUs.
 
