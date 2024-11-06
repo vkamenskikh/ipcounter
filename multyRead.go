@@ -19,7 +19,7 @@ const accumLen = 512
 var parserErrorCount = 0
 
 // We get performance advantages with concurrent reading multiple file sections, if it is stored on SSD
-// Old style HDD works slower with concurrent reads comparing with 1 read because the HDD head must move around.
+// Old style HDD works slower with concurrent reads comparing with a single reading thread because the HDD head must move around.
 func MultiRead(fileName string, topLayer LayerIf) int64 {
 
 	fileInfo, err := os.Stat(fileName)
@@ -144,7 +144,7 @@ func procParseError(line string, err error) {
 		fmt.Printf(err.Error() + ", ignoring\n")
 	}
 	if parserErrorCount >= maxErrorCount {
-		panic(errors.New("There are  5 ip parsing errors, last one: " + err.Error()))
+		panic(errors.New("There are 5 ip parsing errors, last one: " + err.Error()))
 	}
 
 }
