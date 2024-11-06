@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-// Testing approach
+// Testing approach, not used
 func Accumulate(scanner *bufio.Scanner) {
 
 	data := make([][][][]bool, 256)

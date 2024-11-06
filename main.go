@@ -11,6 +11,7 @@ import (
 	"time"
 )
 
+// 2 arguments: 1 - file for parsing, 2 - optional, set to 1 to use single reading thread
 func main() {
 	args := os.Args
 	if len(args) <= 1 {
@@ -71,15 +72,10 @@ func SimpleRead(fileName string, topLayer LayerIf) int64 {
 	return lineCount
 }
 
+const mbDiv = 1024 * 1024
+
 func PrintMemUsage(title string) {
 	var m runtime.MemStats
 	runtime.ReadMemStats(&m)
-	fmt.Println("======= Memory ", title, "=======")
-	fmt.Printf("Alloc = %v k\n", bToMb(m.Alloc)) // KiB
-	fmt.Printf("TotalAlloc = %v k\n", bToMb(m.TotalAlloc))
-	fmt.Printf("Sys = %v k\n", bToMb(m.Sys))
-	fmt.Println("------------------------")
-}
-func bToMb(b uint64) uint64 {
-	return b / 1024
+	fmt.Printf("Memory %v, Alloc: %v MiB, TotalAlloc: %v MiB, Sys: %v MiB\n", title, m.Alloc/mbDiv, m.TotalAlloc/mbDiv, m.Sys/mbDiv)
 }
