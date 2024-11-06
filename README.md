@@ -1,12 +1,12 @@
 Application read a text file and calculate amount of rows and unique IPs
-The file format:
+The file format:<pre>
   145.67.23.4
   8.34.5.23
   89.54.3.124
   89.54.3.124
   3.45.71.5
   ...
-
+</pre>
 Usage:
 go run . fileName [1]
 - fileName - full file path with the name
